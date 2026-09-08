@@ -27,6 +27,8 @@ MINE_ROWS = 1
 MINE_COLS = 3
 MINE_PNG = "mine.png"
 
+GRID_PNG = "img.png"
+
 FONT_NAME = "Arial"
 WELCOME_COLOR = (0,0,0)
 WELCOME_MESSAGE = (f"Welcome to The Flag game."
@@ -42,3 +44,4 @@ FLAG_TILE = 2
 RUNNING_STATE = 0
 LOSE_STATE = 1
 WIN_STATE = 2
+SHOW_MINES_STATE = 3
