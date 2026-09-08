@@ -8,14 +8,17 @@ def create_soldier():
         "x": 0 ,
         "y": 0 ,
     }
-    pass
 
-def find_legs():
 
-    pass
+def find_legs(soldier):
+    lst = [soldier.get("x")]
+    y = soldier.get("y")
+    y = consts.SOLDIER_BODY_ROWS * y
+    lst.append(y)
+    return lst
 
-def find_arms():
-    pass
+# def find_arms(soldier):
+#     lst = [soldier.get("x")]
 
 def move_soldier():
     pass
