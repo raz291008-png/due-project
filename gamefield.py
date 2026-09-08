@@ -35,3 +35,9 @@ def create():
 
 def update():
     pass
+
+def place_flag():
+    for r in range(22,25):
+        for c in range(46,50):
+            game_field[r][c] = consts.FLAG_TILE
+
