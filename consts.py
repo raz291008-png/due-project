@@ -4,6 +4,8 @@ CELL_SIZE = 20 # pixels per cell
 WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
 WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
 
+BACKGROUND_COLOR = (138, 201, 38)
+
 SOLDIER_ROWS = 4
 SOLDIER_COLS = 2
 SOLDIER_BODY_ROWS = 3 # the upper part
@@ -23,7 +25,7 @@ MINE_ROWS = 1
 MINE_COLS = 3
 MINE_PNG = "mine.png"
 
-FONT_NAME = "Calibri"
+FONT_NAME = "Arial"
 WELCOME_COLOR = (0,0,0)
 WELCOME_MESSAGE = (f"Welcome to The Flag game."
                    f"Have Fun!")
