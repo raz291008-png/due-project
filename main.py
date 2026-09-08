@@ -10,9 +10,11 @@ state = {
     "soldier" : None,
     "state" : consts.RUNNING_STATE
 }
+
 def main():
     pygame.init()
     gamefield.create()
+    state["soldier"] = soldier.create_soldier()
 
     while state["is_window_open"]:
 
@@ -25,7 +27,7 @@ def main():
             state["state"] = consts.LOSE_STATE
 
         gamefield.update()
-        screen.draw_game()
+        screen.draw_game(state)
 
 
 
@@ -42,8 +44,28 @@ def handle_user_events():
         elif state["state"] != consts.RUNNING_STATE:
             continue
 
+        if event.type == pygame.KEYDOWN:
+            dr, dc = 0, 0
+            if event.key == pygame.K_UP:
+                state["soldier"].soldier.move_soldier()
+            elif event.key == pygame.K_DOWN:
+                dr = 1
+            elif event.key == pygame.K_LEFT:
+                dc = -1
+            elif event.key == pygame.K_RIGHT:
+                dc = 1
+            elif event.key == pygame.K_SPACE:
+                state["state"] = consts.SHOW_MINES_STATE
+
+
+
+
+
 def touched_flag():
     return True
 
 def touched_mine():
     return True
+
+if __name__ == '__main__':
+    main()

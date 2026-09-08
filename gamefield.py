@@ -2,7 +2,8 @@ import random
 import consts
 
 game_field =[]
-def random_mine ():
+
+def random_mines():
     for row in range(20):
         r = random.randint(0,consts.BOARD_ROWS-1)
         c = random.randint(0,consts.BOARD_COLS-1)
@@ -22,16 +23,13 @@ def place_mine(r,c):
             game_field[r][i] = consts.MINE_TILE
 
 
-
-
-
 def create():
     global game_field
     for r in range(consts.BOARD_ROWS):
         game_field.append([])
         for c in range(consts.BOARD_COLS):
             game_field[r].append(0)
-
+    random_mines()
 
 def update():
     pass
