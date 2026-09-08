@@ -8,15 +8,20 @@ SOLDIER_ROWS = 4
 SOLDIER_COLS = 2
 SOLDIER_BODY_ROWS = 3 # the upper part
 SOLDIER_FEET_ROWS = 1 # the lower part
+SOLDIER_WIDTH = SOLDIER_COLS*CELL_SIZE
+SOLDIER_HEIGHT = SOLDIER_ROWS*CELL_SIZE
+SOLDIER_PNG = "soldier.png"
 
 FLAG_ROWS = 3
 FLAG_COLS = 4
 flag_row = BOARD_ROWS - FLAG_ROWS
 flag_col = BOARD_COLS - FLAG_COLS
+FLAG_PNG = "flag.png"
 
 MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
+MINE_PNG = "mine.png"
 
 FONT_NAME = "Calibri"
 WELCOME_COLOR = (0,0,0)
@@ -24,7 +29,8 @@ WELCOME_MESSAGE = (f"Welcome to The Flag game."
                    f"Have Fun!")
 WELCOME_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
 WELCOME_LOCATION = \
-    ()
+(10,WELCOME_FONT_SIZE)
+
 EMPTY_TILE = 0
 MINE_TILE = 1
 FLAG_TILE = 2

@@ -1,5 +1,6 @@
 import pygame
 import consts
+
 def create_soldier():
     pass
 
