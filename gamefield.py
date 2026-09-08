@@ -1,7 +1,7 @@
 import random
 import consts
 
-game_field =[]
+game_field = []
 
 def random_mines():
     for row in range(20):

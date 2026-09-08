@@ -9,11 +9,13 @@ state = {
     "is_window_open" : True,
     "soldier" : None,
     "state" : consts.RUNNING_STATE
+
 }
 
 def main():
     pygame.init()
     gamefield.create()
+    print_mat(gamefield.game_field)
     state["soldier"] = soldier.create_soldier()
 
     while state["is_window_open"]:
@@ -31,7 +33,11 @@ def main():
 
 
 
-
+def print_mat(mat):
+    for i in range(len(mat)):
+        for j in range(len(mat[i])):
+            print(mat[i][j],end= "")
+        print("")
 
 
 
@@ -47,7 +53,7 @@ def handle_user_events():
         if event.type == pygame.KEYDOWN:
             dr, dc = 0, 0
             if event.key == pygame.K_UP:
-                state["soldier"].soldier.move_soldier()
+                dr = -1
             elif event.key == pygame.K_DOWN:
                 dr = 1
             elif event.key == pygame.K_LEFT:

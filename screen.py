@@ -1,23 +1,29 @@
 import pygame
 import consts
+from gamefield import game_field
 
 screen = pygame.display.set_mode(
         (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 
-def draw_soldier(soldier):
-    soldier_img = pygame.image.load(consts.SOLDIER_PNG)
+def draw_soldier(soldier,png =consts.SOLDIER_PNG ):
+    soldier_img = pygame.image.load(png)
     sized = pygame.transform.scale(soldier_img,(consts.SOLDIER_WIDTH*2,consts.SOLDIER_HEIGHT))
 
     screen.blit(sized,(soldier["x"],soldier["y"]))
 
 def draw_mines():
-    pass
+    mine = pygame.image.load(consts.MINE_PNG)
+    mine_img = pygame.transform.scale(mine,(consts.MINE_COLS*20,consts.MINE_ROWS*20))
+    for row in range(consts.BOARD_ROWS):
+        for col in range(consts.BOARD_COLS):
+            if game_field[row][col] == consts.MINE_TILE:
+                screen.blit(mine_img,(row*20,col*20))
 
 def draw_grid():
-    grid_img = pygame.image.load(consts.GRID_PNG)
-    grid_img = pygame.transform.scale(grid_img,(consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
-
-    screen.blit(grid_img,(0,0))
+    screen.fill("black")
+    for row in range(consts.BOARD_COLS):
+        for col in range(consts.BOARD_ROWS):
+            pygame.draw.rect(screen,(41, 70, 38),(20*row,20*col,20,20),width=1)
 
 def draw_explosion():
     pass
@@ -26,7 +32,10 @@ def welcome_msg():
     pass
 
 def draw_flag():
-    pass
+    flag_img = pygame.image.load(consts.FLAG_PNG)
+    flag_img = pygame.transform.scale(flag_img,(consts.FLAG_COLS*20,consts.FLAG_ROWS*20))
+
+    screen.blit(flag_img,(consts.flag_col*20,consts.flag_row*20))
 
 def draw_game(state):
     screen.fill(consts.BACKGROUND_COLOR)
@@ -34,10 +43,11 @@ def draw_game(state):
     draw_flag()
     welcome_msg()
 
-    # if state["state"] == consts.SHOW_MINES_STATE:
-    screen.fill("black")
-    draw_mines()
-    draw_grid()
-        # state["state"] = consts.RUNNING_STATE
+    if True:
+        draw_grid()
+        draw_flag()
+        draw_soldier(state["soldier"],consts.NIGHT_SOLD_PNG)
+        draw_mines()
+
 
     pygame.display.flip()
