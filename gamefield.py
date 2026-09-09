@@ -1,6 +1,6 @@
 import random
 import consts
-
+import soldier
 game_field = []
 
 def create(soldier):
@@ -42,11 +42,14 @@ def place_flag():
 
 
 def place_soldier(soldier):
-    for r in range(consts.SOLDIER_ROWS):
-        for c in range(consts.SOLDIER_COLS):
+    for r in range(soldier["row"],consts.SOLDIER_ROWS):
+        for c in range(soldier["col"],consts.SOLDIER_COLS):
             game_field[r][c] = consts.PLAYER_TILE
 
 def update():
-    pass
+    game_field.append(place_soldier(soldier))
+    print(game_field)
+
+
 
 
