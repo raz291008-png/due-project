@@ -34,7 +34,18 @@ def draw_grid():
 def draw_explosion():
     pass
 
-def welcome_msg():
+def draw_message(message, font_size, color, location):
+    font = pygame.font.SysFont(consts.FONT_NAME, font_size)
+    text_img = font.render(message, True, color)
+    screen.blit(text_img, location)
+
+def draw_welcome():
+    draw_message(consts.WELCOME_MESSAGE,consts.WELCOME_FONT_SIZE,consts.WELCOME_COLOR,consts.WELCOME_LOCATION)
+
+def draw_win():
+    pass
+
+def draw_lose():
     pass
 
 def draw_flag():
@@ -47,7 +58,7 @@ def draw_game(state):
     screen.fill(consts.BACKGROUND_COLOR)
     draw_soldier(state["soldier"])
     draw_flag()
-    welcome_msg()
+    draw_welcome()
     draw_bushes()
 
     if state["state"] == consts.SHOW_MINES_STATE:
@@ -55,6 +66,9 @@ def draw_game(state):
         draw_flag()
         draw_soldier(state["soldier"],consts.NIGHT_SOLD_PNG)
         draw_mines()
-        pygame.time.delay(10000)
+        pygame.time.delay(1000)
         state["state"] = consts.RUNNING_STATE
+
+    if state["state"] == consts.LOSE_STATE:
+        pass
     pygame.display.flip()
