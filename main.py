@@ -53,7 +53,6 @@ def handle_user_events():
             dr, dc = 0, 0
             if event.key == pygame.K_SPACE:
                 state["state"] = consts.SHOW_MINES_STATE
-                print("ok")
             elif event.key == pygame.K_UP:
                 dr = -1
             elif event.key == pygame.K_DOWN:
@@ -69,10 +68,10 @@ def handle_user_events():
 
 
 def touched_flag():
-    return True
+    pass
 
 def touched_mine():
-    return True
+    pass
 
 if __name__ == '__main__':
     main()

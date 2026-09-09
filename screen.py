@@ -1,5 +1,3 @@
-
-
 import pygame
 import consts
 from gamefield import game_field
@@ -51,11 +49,12 @@ def draw_game(state):
     draw_flag()
     welcome_msg()
     draw_bushes()
+
     if state["state"] == consts.SHOW_MINES_STATE:
         draw_grid()
         draw_flag()
         draw_soldier(state["soldier"],consts.NIGHT_SOLD_PNG)
         draw_mines()
-
-
+        pygame.time.delay(10000)
+        state["state"] = consts.RUNNING_STATE
     pygame.display.flip()
