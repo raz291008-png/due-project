@@ -34,7 +34,7 @@ def find_body(soldier):
 
 
 def move_soldier(dr,dc,soldier):
-    if soldier["row"]+ dr < 0 or soldier["row"]> consts.BOARD_ROWS or 0 > soldier["col"] > consts.BOARD_COLS:
+    if soldier["row"]+ dr < 0 or soldier["row"] +dr > consts.BOARD_ROWS-1 or 0 > soldier["col"]+dc > consts.BOARD_COLS-1:
         pass
     else:
         soldier["row"] = soldier["row"] + dr
