@@ -17,7 +17,6 @@ def main():
     gamefield.create()
     print_mat(gamefield.game_field)
     state["soldier"] = soldier.create_soldier()
-
     while state["is_window_open"]:
 
         handle_user_events()
