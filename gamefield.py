@@ -46,9 +46,9 @@ def place_soldier(soldier):
         for c in range(soldier["col"],consts.SOLDIER_COLS):
             game_field[r][c] = consts.PLAYER_TILE
 
-def update():
-    game_field.append(place_soldier(soldier))
-    print(game_field)
+def update(soldier):
+    place_soldier(soldier)
+
 
 
 

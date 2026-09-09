@@ -42,11 +42,11 @@ def draw_message(message, font_size, color, location):
 def draw_welcome():
     draw_message(consts.WELCOME_MESSAGE,consts.WELCOME_FONT_SIZE,consts.WELCOME_COLOR,consts.WELCOME_LOCATION)
 
-def draw_win():
-    pass
-
 def draw_lose():
-    pass
+    draw_message(consts.LOSE_MESSAGE,consts.LOSE_FONT_SIZE,consts.WELCOME_COLOR,consts.LOSE_LOCATION)
+
+def draw_win():
+    draw_message(consts.WIN_MESSAGE,consts.WIN_FONT_SIZE,consts.WIN_COLOR,consts.WIN_LOCATION)
 
 def draw_flag():
     flag_img = pygame.image.load(consts.FLAG_PNG)
@@ -66,9 +66,14 @@ def draw_game(state):
         draw_flag()
         draw_soldier(state["soldier"],consts.NIGHT_SOLD_PNG)
         draw_mines()
+        pygame.display.flip()
         pygame.time.delay(1000)
         state["state"] = consts.RUNNING_STATE
 
+    if state["state"] == consts.WIN_STATE:
+        draw_win()
+
     if state["state"] == consts.LOSE_STATE:
-        pass
+        draw_lose()
+
     pygame.display.flip()
