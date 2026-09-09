@@ -34,14 +34,20 @@ def find_body(soldier):
 
 
 def move_soldier(dr,dc,soldier):
-    if soldier.get("row")+ dr > consts.BOARD_COLS or soldier.get("row")+ dr<0:
-        soldier["col"] = soldier.get("col") + dc
-        soldier["x"] = soldier.get("x") +(dc*20)
-    elif soldier.get("col")+dc > consts.BOARD_ROWS or soldier.get("col")+dc<0:
-        soldier["row"] = soldier.get("row") + dr
-        soldier["y"] = soldier.get("y") + (dr*20)
-    else:
-        soldier["row"] = soldier.get("row")+ dr
-        soldier["col"] = soldier.get("col")+ dc
-        soldier["y"] = soldier.get("y") + (dr * 20)
-        soldier["x"] = soldier.get("x") + (dc * 20)
+    soldier["row"] += dr
+    soldier["col"] += dc
+    soldier["x"] = soldier["col"] *20
+    soldier["y"] =soldier["row"]*20
+    print(soldier)
+
+    # if soldier.get("row")+ dr > consts.BOARD_COLS or soldier.get("row")+ dr<0:
+    #     soldier["col"] = soldier.get("col") + dc
+    #     soldier["x"] = soldier.get("x") +(dc*20)
+    # elif soldier.get("col")+dc > consts.BOARD_ROWS or soldier.get("col")+dc<0:
+    #     soldier["row"] = soldier.get("row") + dr
+    #     soldier["y"] = soldier.get("y") + (dr*20)
+    # else:
+    #     soldier["row"] = soldier.get("row")+ dr
+    #     soldier["col"] = soldier.get("col")+ dc
+    #     soldier["y"] = soldier.get("y") + (dr * 20)
+    #     soldier["x"] = soldier.get("x") + (dc * 20)
