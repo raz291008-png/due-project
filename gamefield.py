@@ -41,13 +41,11 @@ def place_flag():
             game_field[r][c] = consts.FLAG_TILE
 
 
-def place_soldier(soldier):
-    for r in range(soldier["row"],consts.SOLDIER_ROWS):
-        for c in range(soldier["col"],consts.SOLDIER_COLS):
+def place_soldier(player):
+    for r in range(player["row"], consts.SOLDIER_ROWS):
+        for c in range(player["col"], consts.SOLDIER_COLS):
             game_field[r][c] = consts.PLAYER_TILE
 
-def update(soldier):
-    place_soldier(soldier)
 
 
 

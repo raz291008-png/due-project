@@ -28,7 +28,7 @@ def main():
         elif touched_mine():
             state["state"] = consts.LOSE_STATE
 
-        gamefield.update(state["soldier"])
+        gamefield.place_soldier(state["soldier"])
         screen.draw_game(state)
 
 
@@ -38,6 +38,7 @@ def print_mat(mat):
         for j in range(len(mat[i])):
             print(mat[i][j],end= "")
         print("")
+    print("\n")
 
 
 
