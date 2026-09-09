@@ -51,7 +51,10 @@ def handle_user_events():
 
         if event.type == pygame.KEYDOWN:
             dr, dc = 0, 0
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_SPACE:
+                state["state"] = consts.SHOW_MINES_STATE
+                print("ok")
+            elif event.key == pygame.K_UP:
                 dr = -1
             elif event.key == pygame.K_DOWN:
                 dr = 1
@@ -59,8 +62,7 @@ def handle_user_events():
                 dc = -1
             elif event.key == pygame.K_RIGHT:
                 dc = 1
-            elif event.key == pygame.K_SPACE:
-                state["state"] = consts.SHOW_MINES_STATE
+
 
 
 
