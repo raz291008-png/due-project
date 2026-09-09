@@ -34,8 +34,8 @@ def find_body(soldier):
 
 
 def move_soldier(dr,dc,soldier):
-    soldier["row"] += dr
-    soldier["col"] += dc
+    soldier["row"] = soldier["row"] + dr
+    soldier["col"] = soldier["col"]+dc
     soldier["x"] = soldier["col"] *20
     soldier["y"] =soldier["row"]*20
     print(soldier)
