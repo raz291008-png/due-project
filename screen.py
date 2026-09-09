@@ -74,6 +74,7 @@ def draw_game(state):
         draw_win()
 
     if state["state"] == consts.LOSE_STATE:
+        screen.fill("red")
         draw_lose()
 
     pygame.display.flip()

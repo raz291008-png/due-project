@@ -6,11 +6,11 @@ import soldier
 import screen
 from gamefield import game_field
 
-state = {
+state = \
+    {
     "is_window_open" : True,
     "soldier" : None,
     "state" : consts.RUNNING_STATE
-
 }
 
 def main():

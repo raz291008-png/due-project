@@ -37,7 +37,7 @@ for bush in range(20):
     bush_lst.append([r,c])
 
 FONT_NAME = "Arial"
-WELCOME_COLOR = (0,0,0)
+WELCOME_COLOR = ("white")
 WELCOME_MESSAGE = (f"Welcome to The Flag game.\n"
                    f"Have Fun!")
 WELCOME_FONT_SIZE = int(0.02 * WINDOW_WIDTH)
