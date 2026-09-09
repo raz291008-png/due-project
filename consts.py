@@ -28,6 +28,7 @@ MINES_COUNT = 20
 MINE_ROWS = 1
 MINE_COLS = 3
 MINE_PNG = "mine.png"
+EXPLOSION_PNG = "explotion.png"
 
 BUSH_PNG = "grass.png"
 bush_lst = []
@@ -46,13 +47,13 @@ WELCOME_LOCATION = \
 
 LOSE_MESSAGE = "You Lost!"
 LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
-LOSE_COLOR = (0,0,0)
+LOSE_COLOR = ("red")
 LOSE_LOCATION = \
     (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (LOSE_FONT_SIZE / 2))
 
 WIN_MESSAGE = "You Won!"
 WIN_FONT_SIZE = LOSE_FONT_SIZE
-WIN_COLOR = (0,0,0)
+WIN_COLOR = ("green")
 WIN_LOCATION = \
     (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (WIN_FONT_SIZE / 2))
 

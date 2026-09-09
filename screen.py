@@ -1,5 +1,6 @@
 import pygame
 import consts
+import soldier
 from gamefield import game_field
 
 screen = pygame.display.set_mode(
@@ -25,14 +26,17 @@ def draw_mines():
             if game_field[row][col] == game_field[row][col-1] == game_field[row][col+1] == consts.MINE_TILE:
                 screen.blit(mine_img,(col*20,row*20))
 
+
 def draw_grid():
     screen.fill("black")
     for row in range(consts.BOARD_COLS):
         for col in range(consts.BOARD_ROWS):
             pygame.draw.rect(screen,(41, 70, 38),(20*row,20*col,20,20),width=1)
 
-def draw_explosion():
-    pass
+def draw_explosion(r,c):
+    exp = pygame.image.load(consts.EXPLOSION_PNG)
+    exp = pygame.transform.scale(exp,(consts.MINE_COLS*20,consts.MINE_ROWS*20))
+    screen.blit(exp,(c*20,r*20))
 
 def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
@@ -43,7 +47,7 @@ def draw_welcome():
     draw_message(consts.WELCOME_MESSAGE,consts.WELCOME_FONT_SIZE,consts.WELCOME_COLOR,consts.WELCOME_LOCATION)
 
 def draw_lose():
-    draw_message(consts.LOSE_MESSAGE,consts.LOSE_FONT_SIZE,consts.WELCOME_COLOR,consts.LOSE_LOCATION)
+    draw_message(consts.LOSE_MESSAGE,consts.LOSE_FONT_SIZE,consts.LOSE_COLOR,consts.LOSE_LOCATION)
 
 def draw_win():
     draw_message(consts.WIN_MESSAGE,consts.WIN_FONT_SIZE,consts.WIN_COLOR,consts.WIN_LOCATION)
@@ -74,7 +78,7 @@ def draw_game(state):
         draw_win()
 
     if state["state"] == consts.LOSE_STATE:
-        screen.fill("red")
         draw_lose()
+        draw_explosion(soldier.find_legs(state["soldier"])[0][0],soldier.find_legs(state["soldier"])[0][1])
 
     pygame.display.flip()
