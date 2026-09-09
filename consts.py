@@ -1,10 +1,11 @@
+import random
 BOARD_ROWS = 25
 BOARD_COLS = 50
 CELL_SIZE = 20 # pixels per cell
 WINDOW_WIDTH = BOARD_COLS * CELL_SIZE
 WINDOW_HEIGHT = BOARD_ROWS * CELL_SIZE
 
-BACKGROUND_COLOR = (138, 201, 38)
+BACKGROUND_COLOR = (00,64,00)
 
 SOLDIER_ROWS = 4
 SOLDIER_COLS = 2
@@ -28,6 +29,12 @@ MINE_ROWS = 1
 MINE_COLS = 3
 MINE_PNG = "mine.png"
 
+BUSH_PNG = "grass.png"
+bush_lst = []
+for bush in range(20):
+    r = random.randint(0, BOARD_ROWS - 1)
+    c = random.randint(0, BOARD_COLS - 1)
+    bush_lst.append([r,c])
 
 FONT_NAME = "Arial"
 WELCOME_COLOR = (0,0,0)
@@ -40,6 +47,7 @@ WELCOME_LOCATION = \
 EMPTY_TILE = 0
 MINE_TILE = 1
 FLAG_TILE = 2
+PLAYER_TILE = 3
 
 RUNNING_STATE = 0
 LOSE_STATE = 1
