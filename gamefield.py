@@ -3,13 +3,13 @@ import consts
 
 game_field = []
 
-def create():
+def create(soldier):
     global game_field
     for r in range(consts.BOARD_ROWS):
         game_field.append([])
         for c in range(consts.BOARD_COLS):
             game_field[r].append(0)
-    place_soldier()
+    place_soldier(soldier)
     random_mines()
     place_flag()
 
@@ -41,7 +41,7 @@ def place_flag():
             game_field[r][c] = consts.FLAG_TILE
 
 
-def place_soldier():
+def place_soldier(soldier):
     for r in range(consts.SOLDIER_ROWS):
         for c in range(consts.SOLDIER_COLS):
             game_field[r][c] = consts.PLAYER_TILE

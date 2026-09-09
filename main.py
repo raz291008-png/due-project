@@ -14,9 +14,9 @@ state = {
 
 def main():
     pygame.init()
-    gamefield.create()
-    print_mat(gamefield.game_field)
     state["soldier"] = soldier.create_soldier()
+    gamefield.create(state["soldier"])
+    print_mat(gamefield.game_field)
     while state["is_window_open"]:
 
         handle_user_events()
@@ -61,7 +61,7 @@ def handle_user_events():
                 dc = -1
             elif event.key == pygame.K_RIGHT:
                 dc = 1
-
+            soldier.move_soldier(dr,dc,state["soldier"])
 
 
 
