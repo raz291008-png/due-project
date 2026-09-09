@@ -28,7 +28,7 @@ def find_body(soldier):
         lst_body.append([r,c])
         lst_body.append([r,c2])
         r += 1
-    print(lst_body)
+    return lst_body
 
 
 

@@ -17,6 +17,7 @@ def main():
     state["soldier"] = soldier.create_soldier()
     gamefield.create(state["soldier"])
     print_mat(gamefield.game_field)
+
     while state["is_window_open"]:
 
         handle_user_events()
@@ -27,7 +28,7 @@ def main():
         elif touched_mine():
             state["state"] = consts.LOSE_STATE
 
-        gamefield.update()
+        gamefield.update(state["soldier"])
         screen.draw_game(state)
 
 
@@ -46,8 +47,8 @@ def handle_user_events():
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
 
-        elif state["state"] != consts.RUNNING_STATE:
-            continue
+        elif state["state"] == consts.LOSE_STATE or state["state"] == consts.WIN_STATE:
+            state["is_window_open"] = False
 
         if event.type == pygame.KEYDOWN:
             dr, dc = 0, 0
@@ -68,10 +69,19 @@ def handle_user_events():
 
 
 def touched_flag():
-    pass
+    body = soldier.find_body(state["soldier"])
+    for cell in range(len(body)):
+        if body[cell][0] == consts.FLAG_TILE or body[cell][1] == consts.FLAG_TILE:
+            return True
+    return False
 
 def touched_mine():
-    pass
+    legs = soldier.find_legs(state["soldier"])
+    for cell in range(len(legs)):
+        if legs[cell][0] == consts.MINE_TILE or legs[cell][1] == consts.MINE_TILE:
+            return True
+    return False
+
 
 if __name__ == '__main__':
     main()
